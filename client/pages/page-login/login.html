@@ -1,0 +1,22 @@
+                <div class="container" ng-controller="loginController">
+                                <div class="body_container container-fluid">
+                                        <div class="login_content container-fluid">
+                                                <span class="title"><p>Login</p></span>
+                                                <div class="content">
+                                                        <div class="email_">
+                                                                <input type="email" ng-model='email_'  placeholder="Email"> 
+                                                        </div>
+                                                        <div class="pass_">
+                                                                <input type="password" ng-model="pass_" placeholder="Password"> 
+                                                        </div>
+                                                        <div class="actoin_btn_contain">
+                                                                <button class="btn btn-info submit_btn" ng-click="login();">Submit</button>
+                                                        </div>
+                                                        <div class="bottom_styles">
+                                                                <span class="forget_text" ng-show="showForget"> <a href="/#/reset_password">Did You Forget Password</a></span>
+                                                                <span class="create_link"> <a href="/#/register">Create Account</a></span>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>

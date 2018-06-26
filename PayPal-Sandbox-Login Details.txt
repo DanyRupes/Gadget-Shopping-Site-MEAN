@@ -1,0 +1,9 @@
+personalAccount :{
+    personaldany@gmail.com
+    12345678
+}
+
+BussinessAccount : {
+        businessmean@gmail.com,
+        123456789
+}

@@ -1,0 +1,89 @@
+
+.about_container {
+    display: flex;
+    flex-direction: column;
+    margin-top: -20px;
+}
+
+.bros_iamge_container {
+    width: 100%;
+    height: 350px;
+    flex: initial;
+}
+.bros_iamge_container .image_holder {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+}
+.body_container {
+    flex: initial;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    /* align-items: safe; */
+    padding-bottom: 30px;
+}
+.bro_containerLeft {
+    flex: 1;
+    /* border: 1px solid darkgray; */
+    padding: 20px;
+    background-color: antiquewhit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.bro_containerRight {
+    flex: 1;
+    /* border: 1px solid darkgray; */
+    padding: 20px;
+    background-color: antiquewhit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.title {
+    flex: initial;
+}
+.Name_text {
+    font-size: 36px;
+    font-weight: 700;
+    color: cornflowerblue;
+    font-family: monospace;
+
+}
+.disc {
+flex: initial;
+}
+.disc_title {
+    font-size: 23px;
+    font-family: sans-serif;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    /* font-weight: 700; */
+    font-size: 30px;
+}
+.disc_text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-style: normal;
+}
+.aboutUS {
+    flex: initial;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.aboutUS li {
+    font-size: 30px;
+    color: blue;
+}
+i {
+    color: #130f40;
+}
+i:hover { 
+    color: #6ab04c
+}

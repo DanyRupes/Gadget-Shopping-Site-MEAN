@@ -1,0 +1,664 @@
+<!doctype html> 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Node.js Response Object</title>
+<meta name="description" content="Node.js Response Object - Learn Node.js framework in simple and easy steps starting from basic to advanced concepts with examples including Introduction, Environment Setup, Node Package Manager, Node Callbacks Concept, Node Buffers Module, Node Streams, Node File System, Node Utility Modules, Node Web Module, Node Express Application, Node RESTFul API, Node Scaling Application." />
+<meta name="keywords" content="Node.js, Tutorial, Introduction, Environment Setup, Node Package Manager, Global vs Local Installation, Node Callbacks Concept, locking vs non-blocking Code, Event Driven Programming, Event Loop Overview, Event Emitters, Implementing Callbacks, Node Buffers Module,JSON to JS Objects, JS Objects to JSON, Buffer Objects, Node Streams, Reading Stream, Writing Stream, Piping Stream, Node File System, File System Module, Synchronous vs Asynchronous Node, Utility Modules,Node Console Module, Node Process Module, Node OS Module, Node Path Module, Node Net Module, Node DNS Module, Node Domain Module, Node Web Module,HTTP Servers with Node.js, HTTP Clients with Node.js, Node Express Application, Express Overview, Installing Express, Express Generator, Node RESTFul API, Node Scaling Application,The exec function,The spawn function,The fork function." />
+<base href="https://www.tutorialspoint.com/" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="fb:app_id" content="471319149685276" />
+<meta property="og:site_name" content="www.tutorialspoint.com" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script type="text/javascript" src="https://www.tutorialspoint.com/theme/js/script-min-v4.js?v=2"></script>
+<link rel="stylesheet" href="https://www.tutorialspoint.com/theme/css/style-min.css?v=3">
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+pre.prettyprint.tryit {min-height:37px; background: #eee url(/nodejs/images/try-it.jpg) top right no-repeat !important}select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #82af25 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #82af25 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #82af25 !important;}
+.submenu-item{ border-bottom: 2px solid #82af25 !important; border-top: 2px solid #82af25 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#82af25; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+<body onload="prettyPrint()">
+<div class="wrapLoader">
+   <div class="imgLoader">
+      <img  src="/images/loading-cg.gif" alt="" width="70" height="70" />
+   </div>
+</div>
+<div id="right_obs" class="display-none" onclick="close_obs_sidenav()"></div>
+<header>
+   <div class="container">			
+      <h1 class="logo">
+      <a href="index.htm" title="tutorialspoint">
+      <img alt="tutorialspoint" src="/nodejs/images/logo.png">
+      </a>
+      </h1>			
+      <ul class="tp-inline-block pull-right" id="tp-head-icons">
+        <li>
+           <div class="tp-second-nav tp-display-none tp-pointer" onclick="openNav()">
+              <i class="fa fa-th-large fa-lg"></i>
+           </div>
+        </li>
+     </ul>
+     <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style="top: 24px!important"> <i class="icon icon-bars"></i> </button>
+      <nav>
+         <ul class="nav nav-pills nav-top">
+            <li><a href="/about/about_careers.htm" style="background: #fffb09; font-weight: bold;"><i class="icon icon-suitcase"></i> Jobs</a></li>
+            <li> <a target="_blank" href="/programming_examples/"><i class="fa fa-cubes"></i> &nbsp;Examples</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/whiteboard.htm"><img src="theme/css/icons/image-editor.png" alt="Whiteboard" title="Whiteboard"> &nbsp;Whiteboard</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/netmeeting.php"><i class="fa-camera"></i> &nbsp;Net Meeting</a> </li>
+            <li> <a href="/online_dev_tools.htm"> <i class="dev-tools-menu" style="opacity:.5"></i> Tools </a> </li>
+            <li> <a href="/articles/index.php"><i class="icon icon-file-text-o"></i> &nbsp;Articles</a> </li>            
+            <li class="top-icons">
+              <ul class="social-icons">
+              <li class="facebook"><a href="https://www.facebook.com/tutorialspointindia" target="_blank" data-placement="bottom" title="tutorialspoint @ Facebook">Facebook</a></li>
+              <li class="googleplus"><a href="https://plus.google.com/u/0/116678774017490391259/posts" target="_blank" data-placement="bottom" title="tutorialspoint @ Google+">Google+</a></li>
+              <li class="twitter"><a href="https://www.twitter.com/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Twitter">Twitter</a></li>
+              <li class="linkedin"><a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Linkedin">Linkedin</a></li>
+              <li class="youtube"><a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" data-placement="bottom" title="tutorialspoint YouTube">YouTube</a></li>
+              </ul>
+           </li>
+         </ul>
+      </nav>
+    </div>
+     <div class="sidenav" id="mySidenav">
+     <div class="navbar nav-main">
+      <div class="container">
+         <nav class="nav-main mega-menu">
+            <ul class="nav nav-pills nav-main" id="mainMenu">
+               <li class="dropdown no-sub-menu"> <a class="dropdown" href="index.htm"><i class="icon icon-home"></i> Home</a> </li>   
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="/questions/index.php"><i class="fa fa-send"></i> Q/A </a> </li>
+               <li class="dropdown"><a class="dropdown" href="tutorialslibrary.htm"><span class="tut-lib"> Library </span></a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="videotutorials/index.htm"><i class="fa-toggle-right"></i> Videos </a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="tutor_connect/index.php"><i class="fa-user"> </i> Tutors</a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="codingground.htm"><i class="fa-code"></i> Coding Ground </a> </li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="https://store.tutorialspoint.com/"><i class="fa-usd"></i> Store </a> </li>
+               <li class="dropdown no-sub-menu">
+                  <div class="searchform-popup">
+                     <input class="header-search-box" type="text" id="search-string" name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == 'Search your favorite tutorials...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search your favorite tutorials...';}" autocomplete="off">
+                     <div class="magnifying-glass"><i class="icon-search"></i> Search </div>
+                 </div>
+               </li>
+            </ul>
+         </nav>
+        </div>
+      </div>	
+     </div>	
+   </div>	
+</header>
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+<aside class="sidebar">
+<div class="mini-logo">
+<img src="/nodejs/images/nodejs-mini-logo.jpg" alt="Node.js Tutorial" />
+</div>
+<ul class="nav nav-list primary left-menu" >
+<li><a class="videolink" href="/nodejs_online_training/index.asp" target="_blank"><img src="/nodejs/images/nodejs-video-tutorials.jpg" alt="Node.js Video Tutorials" /></a></li>
+</ul>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">Node.js Tutorial</li>
+<li><a href="/nodejs/index.htm">Node.js - Home</a></li>
+<li><a href="/nodejs/nodejs_introduction.htm">Node.js - Introduction</a></li>
+<li><a href="/nodejs/nodejs_environment_setup.htm">Node.js - Environment Setup</a></li>
+<li><a href="/nodejs/nodejs_first_application.htm">Node.js - First Application</a></li>
+<li><a href="/nodejs/nodejs_repl_terminal.htm">Node.js - REPL Terminal</a></li>
+<li><a href="/nodejs/nodejs_npm.htm">Node.js - Package Manager (NPM)</a></li>
+<li><a href="/nodejs/nodejs_callbacks_concept.htm">Node.js - Callbacks Concept</a></li>
+<li><a href="/nodejs/nodejs_event_loop.htm">Node.js - Event Loop</a></li>
+<li><a href="/nodejs/nodejs_event_emitter.htm">Node.js - Event Emitter</a></li>
+<li><a href="/nodejs/nodejs_buffers.htm">Node.js - Buffers</a></li>
+<li><a href="/nodejs/nodejs_streams.htm">Node.js - Streams</a></li>
+<li><a href="/nodejs/nodejs_file_system.htm">Node.js - File System</a></li>
+<li><a href="/nodejs/nodejs_global_objects.htm">Node.js - Global Objects</a></li>
+<li><a href="/nodejs/nodejs_utility_module.htm">Node.js - Utility Modules</a></li>
+<li><a href="/nodejs/nodejs_web_module.htm">Node.js - Web Module</a></li>
+<li><a href="/nodejs/nodejs_express_framework.htm">Node.js - Express Framework</a></li>
+<li><a href="/nodejs/nodejs_restful_api.htm">Node.js - RESTFul API</a></li>
+<li><a href="/nodejs/nodejs_scaling_application.htm">Node.js - Scaling Application</a></li>
+<li><a href="/nodejs/nodejs_packaging.htm">Node.js - Packaging</a></li>
+<li class="heading">Node.js Useful Resources</li>
+<li><a href="/nodejs/nodejs_quick_guide.htm">Node.js - Quick Guide</a></li>
+<li><a href="/nodejs/nodejs_useful_resources.htm">Node.js - Useful Resources</a></li>
+<li><a href="/nodejs/nodejs_discussion.htm">Node.js - Dicussion</a></li>
+</ul>
+<ul class="nav nav-list primary push-bottom left-menu special">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="/upsc_ias_exams.htm">UPSC IAS Exams Notes</a></li>
+<li><a target="_top" href="/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+ </aside>
+</div>
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+<div class="col-md-7 middle-col">
+<h1>Node.js - Response Object</h1>
+<div class="topgooglead">
+<hr />
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+</script>
+</div>
+<hr />
+<div class="pre-btn">
+<a href="/nodejs/nodejs_express_framework.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="/nodejs/nodejs_express_framework.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<div class="clearer"></div>
+<hr />
+<p>The <b>res</b> object represents the HTTP response that an Express app sends when it gets an HTTP request.</p>
+<h2>Response Object Properties</h2>
+<p>Following is the list of few properties associated with response object.</p>
+<table class="table table-bordered">
+<tr>
+<th style="text-align:center">S.No.</th>
+<th style="text-align:center">Properties &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><b>res.app</b></p>
+<p>This property holds a reference to the instance of the express application that is using the middleware.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><b>res.headersSent</b></p>
+<p>Boolean property that indicates if the app sent HTTP headers for the response.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><b>res.locals</b></p>
+<p>An object that contains response local variables scoped to the request</p>
+</td>
+</tr>
+</table>
+<h2>Response Object Methods</h2>
+<h3>res.append(field [, value])</h3>
+<pre class="result notranslate">
+res.append(field [, value])
+</pre>
+<p>This method appends the specified value to the HTTP response header field. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.append('Link', ['&lt;http://localhost/&gt;', '&lt;http://localhost:3000/&gt;']);
+res.append('Set-Cookie', 'foo=bar; Path=/; HttpOnly');
+res.append('Warning', '199 Miscellaneous warning');
+</pre>
+<h3>res.attachment([filename])</h3>
+<pre class="result notranslate">
+res.attachment([filename])
+</pre>
+<p>This method is used to send a file as an attachment in the HTTP response. Following are a few examples &minus;</p>
+<pre class="result notranslate">
+res.attachment('path/to/logo.png');
+</pre>
+<h3>res.cookie(name, value [, options])</h3>
+<pre class="result notranslate">
+res.cookie(name, value [, options])
+</pre>
+<p>This method is used to set cookie name to value. The value parameter may be a string or object converted to JSON. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.cookie('name', 'tobi', { domain: '.example.com', path: '/admin', secure: true });
+
+res.cookie('cart', { items: [1,2,3] });
+res.cookie('cart', { items: [1,2,3] }, { maxAge: 900000 });
+</pre>
+<h3>res.clearCookie(name [, options])</h3>
+<pre class="result notranslate">
+res.clearCookie(name [, options])
+</pre>
+<p>This method is used to clear the cookie specified by name. Following are a few examples &minus;</p>
+<pre class="result notranslate">
+res.cookie('name', 'tobi', { path: '/admin' });
+res.clearCookie('name', { path: '/admin' });
+</pre>
+<h3>res.download(path [, filename] [, fn])</h3>
+<pre class="result notranslate">
+res.download(path [, filename] [, fn])
+</pre>
+<p>This method is used to transfer the file at path as an "attachment". Typically, browsers will prompt the user for download. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.download('/report-12345.pdf');
+
+res.download('/report-12345.pdf', 'report.pdf');
+
+res.download('/report-12345.pdf', 'report.pdf', function(err){
+
+});
+</pre>
+<h3>res.end([data] [, encoding])</h3>
+<pre class="result notranslate">
+res.end([data] [, encoding])
+</pre>
+<p>This method is used to end the response process. Following are a few examples &minus;</p>
+<pre class="result notranslate">
+res.end();
+
+res.status(404).end();
+</pre>
+<h3>res.format(object)</h3>
+<pre class="result notranslate">
+res.format(object)
+</pre>
+<p>This method is used to perform content-negotiation on the Accept HTTP header on the request object, when present. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.format({
+   'text/plain': function(){
+      res.send('hey');
+   },
+
+   'text/html': function(){
+      res.send('hey');
+   },
+
+   'application/json': function(){
+      res.send({ message: 'hey' });
+   },
+
+   'default': function() {
+      // log the request and respond with 406
+      res.status(406).send('Not Acceptable');
+   }
+});
+</pre>
+<h3>res.get(field)</h3>
+<pre class="result notranslate">
+res.get(field)
+</pre>
+<p>This method is used to return the HTTP response header specified by field. Here is an examples &minus;</p>
+<pre class="result notranslate">
+res.get('Content-Type');
+</pre>
+<h3>res.json([body])</h3>
+<pre class="result notranslate">
+res.json([body])
+</pre>
+<p>This method is used to send a JSON response. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.json(null)
+res.json({ user: 'tobi' })
+res.status(500).json({ error: 'message' })
+</pre>
+<h3>res.jsonp([body])</h3>
+<pre class="result notranslate">
+res.jsonp([body])
+</pre>
+<p>This method is used to send a JSON response with JSONP support. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.jsonp(null)
+res.jsonp({ user: 'tobi' })
+res.status(500).jsonp({ error: 'message' })
+</pre>
+<h3>res.links(links)</h3>
+<pre class="result notranslate">
+res.links(links)
+</pre>
+<p>This method is used to join the links provided as properties of the parameter to populate the response’s Link HTTP header field. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.links({
+   next: 'http://api.example.com/users?page=2',
+   last: 'http://api.example.com/users?page=5'
+});
+</pre>
+<h3>res.location(path)</h3>
+<pre class="result notranslate">
+res.location(path)
+</pre>
+<p>This method is used to set the response Location HTTP header field based on the specified path parameter. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.location('/foo/bar');
+res.location('foo/bar');
+res.location('http://example.com');
+</pre>
+<h3>res.redirect([status,] path)</h3>
+<pre class="result notranslate">
+res.redirect([status,] path)
+</pre>
+<p>This method is used to redirect to the URL dervied from the specified path, with specified HTTP status code status. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.redirect('/foo/bar');
+res.redirect('http://example.com');
+res.redirect(301, 'http://example.com');
+</pre>
+<h3>res.render(view [, locals] [, callback])</h3>
+<pre class="result notranslate">
+res.render(view [, locals] [, callback])
+</pre>
+<p>This method is used to render a view and sends the rendered HTML string to the client. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+// send the rendered view to the client
+res.render('index');
+
+// pass a local variable to the view
+res.render('user', { name: 'Tobi' }, function(err, html) {
+   // ...
+});
+</pre>
+<h3>res.send([body])</h3>
+<pre class="result notranslate">
+res.send([body])
+</pre>
+<p>This method is used to send the HTTP response. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.send(new Buffer('whoop'));
+res.send({ some: 'json' });
+res.send('<p>some html</p>');
+</pre>
+<h3>res.sendFile(path [, options] [, fn])</h3>
+<pre class="result notranslate">
+res.sendFile(path [, options] [, fn])
+</pre>
+<p>This method is used to transfer the file at the given path. Sets the Content-Type response HTTP header field based on the filename’s extension. Here is an example &minus;</p>
+<pre class="prettyprint notranslate">
+res.sendFile(fileName, options, function (err) {
+   // ...
+});
+</pre>
+<h3>res.sendStatus(statusCode)</h3>
+<pre class="result notranslate">
+res.sendStatus(statusCode)
+</pre>
+<p>This method is used to set the response HTTP status code to statusCode and send its string representation as the response body. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.sendStatus(200); // equivalent to res.status(200).send('OK')
+res.sendStatus(403); // equivalent to res.status(403).send('Forbidden')
+res.sendStatus(404); // equivalent to res.status(404).send('Not Found')
+res.sendStatus(500); // equivalent to res.status(500).send('Internal Server Error')
+</pre>
+<h3>res.set(field [, value])</h3>
+<pre class="result notranslate">
+res.set(field [, value])
+</pre>
+<p>This method is used to set the response’s HTTP header field to value.  Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.set('Content-Type', 'text/plain');
+
+res.set({
+   'Content-Type': 'text/plain',
+   'Content-Length': '123',
+   'ETag': '12345'
+})
+</pre>
+<h3>res.status(code)</h3>
+<pre class="result notranslate">
+res.status(code)
+</pre>
+<p>This method is used to set the HTTP status for the response. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.status(403).end();
+res.status(400).send('Bad Request');
+res.status(404).sendFile('/absolute/path/to/404.png');
+</pre>
+<h3>res.type(type)</h3>
+<pre class="result notranslate">
+res.type(type)
+</pre>
+<p>This method is used to set the Content-Type HTTP header to the MIME type. Following are a few examples &minus;</p>
+<pre class="prettyprint notranslate">
+res.type('.html');              // =&gt; 'text/html'
+res.type('html');               // =&gt; 'text/html'
+res.type('json');               // =&gt; 'application/json'
+res.type('application/json');   // =&gt; 'application/json'
+res.type('png');                // =&gt; image/png:
+</pre>
+<hr />
+<div class="pre-btn">
+<a href="/nodejs/nodejs_express_framework.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="print-btn center">
+<a href="/cgi-bin/printpage.cgi" target="_blank"><i class="icon icon-print big-font"></i> Print</a>
+</div>
+<div class="nxt-btn">
+<a href="/nodejs/nodejs_express_framework.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<hr />
+<!-- PRINTING ENDS HERE -->
+<div class="parent-file">nodejs_express_framework.htm</div>
+<div class="bottomgooglead">
+<div class="bottomadtag">Advertisements</div>
+<!-- /60931893/tutorial_bottom_leader_board -->
+<div id='div-gpt-ad-1510138782906-3'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1510138782906-3'); });
+</script>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3" id="rightbar">
+<div class="ysubscribe">
+  <script async src="https://apis.google.com/js/platform.js"></script>
+  <div class="g-ytsubscribe" data-channelid="UCVLbzhxVTiTLiVKeGV7WEBg" data-layout="full" data-count="default"></div>
+</div>
+<div class="ysubscribe">
+<a href="https://store.tutorialspoint.com/" target="_blank"><img alt="E-Books Store" src="/images/buy_ebooks_online.jpg"/></a>
+</div>
+<div class="rightgooglead">
+<!-- /60931893/tutorial_right_top -->
+<div id='div-gpt-ad-1510138782906-2' style='height:250px; width:300px;'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1510138782906-2'); });
+</script>
+</div>
+</div>
+<div class="rightgooglead">
+<!-- /60931893/tutorial_right_middle -->
+<div id='div-gpt-ad-1510138782906-1'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1510138782906-1'); });
+</script>
+</div>
+</div>
+<div class="rightgooglead">
+<!-- /60931893/tutorial_right_bottom -->
+<div id='div-gpt-ad-1510138782906-0'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1510138782906-0'); });
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-1">
+<a href="index.htm" class="logo"> <img alt="Tutorials Point" class="img-responsive" src="/scripts/img/logo-footer.png"> </a>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <nav id="sub-menu">
+      <ul>
+         <li><a href="/about/faq.htm">FAQ's</a></li>
+         <li><a href="/about/about_privacy.htm#cookies">Cookies Policy</a></li>
+         <li><a href="/about/contact_us.htm">Contact</a></li>
+      </ul>
+   </nav>
+</div>
+<div class="col-md-3 col-sm-12 col-xs-12">
+<p>&copy; Copyright 2018. All Rights Reserved.</p>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <div class="news-group">
+      <input type="text" class="form-control-foot search" name="textemail" id="textemail" autocomplete="off" placeholder="Enter email for newsletter" onfocus="if (this.value == 'Enter email for newsletter...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter email for newsletter...';}">
+      <span class="input-group-btn"> <button class="btn btn-default btn-footer" id="btnemail" type="submit" onclick="javascript:void(0);">go</button> </span>
+      <div id="newsresponse"></div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Libs -->
+<script type="text/javascript" src="/theme/js/custom-min.js?v=7"></script>
+<script src="https://www.google-analytics.com/urchin.js">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+$('.pg-icon').click(function(){
+   $('.wrapLoader').show();
+});
+</script>
+<script type="text/javascript" src="/theme/js/jquery.colorbox-min.js"></script>
+<script type="text/javascript">
+   var tryit = new $.TryIt('/nodejs/try_nodejs.php');
+   tryit.compile();
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Node.js Response Object",
+    "name": "Node.js Response Object",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.tutorialspoint.com/nodejs/nodejs_response_object.htm"
+    },
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://www.tutorialspoint.com/nodejs/images/nodejs-mini-logo.jpg",
+        "width": 255,
+        "height": 194
+    },
+    "author": {
+        "@type": "Organization",
+        "name": "Tutorials Point",
+        "url": "https://www.tutorialspoint.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.tutorialspoint.com/images/logo60.png",
+            "width": 210,
+            "height": 60
+        }
+    },
+    "datePublished": "January 08 2018 06:25:02.",
+    "dateModified": "January 08 2018 06:25:02.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Tutorials Point",
+        "url": "https://www.tutorialspoint.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.tutorialspoint.com/images/logo60.png",
+            "width": 210,
+            "height": 60
+        }
+    },
+    "description": "The res object represents the HTTP response that an Express app sends when it gets an HTTP request...."
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "name": "www.tutorialspoint.com",
+                "@id": "https://www.tutorialspoint.com"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "name": "Nodejs",
+                "@id": "https://www.tutorialspoint.com/nodejs"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "name": null
+            }
+        }
+    ]
+}
+</script>
+</div>
+</body>
+</html>

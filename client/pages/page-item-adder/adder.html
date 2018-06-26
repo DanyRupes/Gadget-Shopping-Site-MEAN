@@ -1,0 +1,19 @@
+
+<pre> 
+<form name="adder_form"  ng-controller="adderController">
+   Item_id :        <input type="text" ng-model="id" placeholder="Number-only"><br><br>
+   Item_type:       <select  ng-model="type_">
+                    <option value="" disabled selected>Select Type</option>
+                    <option ng-repeat="type_ in types_" value="{{type_}}" ng-selected="{{type_.selected == true}}">{{type_}}</option>
+                    </select><br><br>
+   Item_name :      <input type="text" ng-model="name_" placeholder="String"><br><br>
+   Item_model :     <input type="text" ng-model="model" placeholder="String"><br><br>
+   Item_description:<input type="text" ng-model="desc" placeholder="String"><br><br>
+   Item_price :     <input type="text" ng-model="price" placeholder="Number-only"><br><br>
+   Item_stock :     <input type="text" ng-model="stock" placeholder="String"><br><br>
+   Item_offer:      <input type="text" ng-model="offer" placeholder="String"><br><br>
+   Item_warranty :  <input type="text" ng-model="warranty" placeholder="String"><br><br>
+   Item_emi :       <input type="text" ng-model="emi" placeholder="String"><br><br>
+   Upload Image :   <input class="btn btn-info" type="file" name="img_file" ngf-select  ng-model="img_file"  ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" style="display: inline-block;cursor: pointer;border: none;overflow: hidden;"><br><br>
+                    <button type="button" class="btn btn-primary" ng-click="adder();">Add Items</button>
+                    <p>{{progress}}</form></pre>

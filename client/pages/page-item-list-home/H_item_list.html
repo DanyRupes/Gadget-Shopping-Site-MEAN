@@ -1,0 +1,87 @@
+<div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'success')" close="closeAlert($index)">{{alert.msg}}</div>    
+<div class="container-fluid" ng-controller="H_item_list_controller">
+        <md-content  ng-cloak="" class="Main">
+                <md-card ng-repeat="item in items_Data" class="myCard" layout="column"><!-- ng-repeat="item in items_Data"-->
+                  <!-- //ng-src="data:image/JPEG;base64,{{item.image.data}}" -->
+                        <img class="img-responsive md-card-image" style="height: 200px;" data-ng-src="{{item.image.data}}">
+                        <!-- uploads/images/ -->
+                        <!--data-ng-src="data:image/jpg;base64,{{imge}}"-->
+                        <div class="topCard" layout="column">
+                        <md-card-title>
+                                <span class=" Title">{{item.name}}</span>
+                        </md-card-title>
+                          <md-card-title-text>
+                                <span class=" Titledesc">{{item.model}}</span>                            
+                          </md-card-title-text>
+                    
+                    </div>
+                        <md-card-content class="card cardContent">
+                          <p class="Desc">
+                                {{item.description}}
+                                <!-- <md-content layout-padding>
+                                       
+                                    </md-content> -->
+                          </p>
+                          <md-card-content class="cost" layout="row" layout-align="start">
+                          <p>Price : {{item.price}}</p>
+                          <p>Stock : {{item.stock}}</p>
+                        </md-card-content>
+                        </md-card-content>
+                     
+                                <md-button class="btnCart btn btn-info" ng-click="addCart(item)">Add To Cart</md-button>
+    
+                    
+                      </md-card>
+
+</md-content>
+
+
+
+
+</div>
+                            <!-- <md-card-icon-actions>
+                                  <md-button class="md-icon-button" aria-label="toggle">
+                                    <md-icon md-svg-icon="md-toggle-arrow"></md-icon>
+                                  </md-button>
+                                </md-card-icon-actions> -->
+         <!-- <div class="row" ng-controller="H_item_list_controller">                  
+             <div class="col-md-3 col-sm-3 itemBox"  ng-repeat="item in items_Data">
+                <div class="thumb">
+                        <img class="img-thumbnail" src="https://gadgetmaniac88.files.wordpress.com/2013/01/samsung-galaxy-note-8-tablet-android-ipad-mini-620x514.jpg" alt="bea0001">
+                        <div class="panel pan1 panel-default">
+                          <h3 class="item_name">{{item.name}} {{item.model}}</h3>
+                          <p class="item1_desc">{{item.description}}</p>
+                          <ul class="panel-body panB1 price_stock">
+                                <li><p >Price : {{item.price}}</p></li>
+                                <li><p >Stock : {{item.stock}}</p></li>
+                            </ul>
+                          <div class="btn-addTOCart">
+                              <p><button type="button" class="btn btn-primary" ng-click="addCart()" >Add to Cart</button></p></div>
+                        </div>
+                      </div>
+         </div>
+             
+         </div>
+    </div>
+     -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <!-- <ul style="font-size: 20px;display: inline-flex;justify-content: space-around">
+        
+            Name:           <li ng-model="item1_name">{{item1_name}}</li>
+            Model:          <li ng-model="item1_model">{{item1_model}}</li>
+            Description:<li ng-model="item1_desc">{{item1_desc}}</li>
+            Price:          <li ng-model="item1_price">{{item1_price}}</li>
+            Stock:          <li ng-model="item1_stock">{{item1_stock}}</li>
+        </ul> -->

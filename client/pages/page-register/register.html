@@ -1,0 +1,29 @@
+<div class="container" ng-controller='register_controller'>
+    <div class="body_container container-fluid">
+            <div class="login_content container-fluid">
+                    <span class="title">Register</span>
+                    <form name="regForm" class="content">
+                            <div class="component">
+                                    <input type="text" ng-model="reg_name" placeholder="Name" required> 
+                            </div>
+                            <div class="component">
+                                    <input type="email" ng-model="reg_email" placeholder="Email" required> 
+                            </div>
+                            <div class="component">
+                                    <input type="password" ng-model="reg_Pass" placeholder="Password" required> 
+                            </div>
+                            <p id="notMatch" class="Danger"></p>
+                            <div class="component">
+                                <input type="password" ng-model="Re_Pass" placeholder="Re-Password" required>    
+                            </div>
+                            <div class="actoin_btn_contain">
+                                    <button class="btn btn-info submit_btn" ng-click="register()" type="button" ng-disabled="regForm.$invalid">Register</button>
+                            </div>
+                            <div class="bottom_styles">
+                                    <span class="forget_text"> Already have an account</span>
+                                    <span class="create_link"> <a href="#/login">Login</a></span>
+                            </form>
+                    </div>
+            </div>
+    </div>
+</div>

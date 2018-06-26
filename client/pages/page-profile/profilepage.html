@@ -1,0 +1,54 @@
+
+
+
+<div  ng-controller="profileController">
+
+                <div class="container body_cotainer">
+                        <div class="head_container">
+                                <div class="image_cotainer">
+                                        <!-- <h1>Hii Image</h1> -->
+                                        <img class="img-circle profile_pic" src="danypic.png">
+                                </div>
+                                <div class="content_container">
+                                    <div class="content">
+                                            <div class="title">
+                                                   {{user_name}}
+                                            </div>
+                                            <div class="subtitle" >
+                                                    {{user_email}}
+                                            </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <p style="border-style: outset"></p>
+                        <div class="cart_container">
+                                <div class="cart_title">
+                                        <span class="title">Cart</span>
+                                </div>
+                                <div class=" row col-md-12">
+                                            <div class="cart_item col-md-4 col-sm-4" ng-repeat="c in Cart">
+                                                            <div class="panel">
+                                                              <i ng-click="rem_cart(c,$event);" class="fa fa-minus-circle" aria-hidden="true"></i>
+                                                                    <div class="panel-title">
+                                                                            {{c.name}}
+                                                                    </div>
+                                                                    <div class="panel-heading">
+                                                                        {{c.description}}
+                                                                    </div>
+                                                                    <div class="panel-body">
+                                                                            <img class="img-responsive item_img_holder" data-ng-src="{{c.image.data}}">
+                                                                    </div>
+                                                                    <div class="paypal_container panel-footer">
+                                                                       <button class="payBtn" ng-click="payPal(c);"><img src="/paypalCheckOut.png" alt="Check out with PayPal" /></button>
+                                                                    </div>
+                                                            </div>
+                                             </div>
+            
+                                </div>
+                        </div>
+            
+                </div>
+            
+                <!-- <script src="profileController.js"></script> -->
+            </div>
+                

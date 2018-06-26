@@ -1,0 +1,310 @@
+/* h2 {
+    color: darkmagenta;
+}
+.Main .myProfileCard{
+    min-width: 325px;
+    max-width: 400px;
+    height: 400px;
+    justify-content: baseline;
+    align-items: initial;
+    align-content: initial;
+    text-align: center;
+} */
+
+body {
+    background-color: white ;
+    /* background: url('../../../Styles/Images/sunset_minimal_5k.jpg'); */
+    background-position: center;
+    background-color: white;
+    color: #ff136a;
+    /* background */
+}
+
+.body_cotainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+.body_cotainer .head_container {
+    height: auto;
+    width: 100%;
+    /* margin: 20px; */
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* min-width: 555px; */
+    flex-wrap: wrap;
+}
+.head_container .image_cotainer {
+    flex: .3;
+    flex-shrink: 2;
+    width: auto;
+    /* padding: 0px; */
+    height: 230px;
+    align-self: flex-start;
+    /* right: auto; */
+    /* border: 0.5px solid; */
+    margin: 10px;
+}
+
+.image_cotainer .profile_pic {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    /* border-radius: 50% 50%; */
+}
+.head_container .content_container {
+    flex: 1.6;
+    flex-shrink: 1;
+    height: 60%;
+    padding: 10px;
+    /* border: .5px solid; */
+    margin: 0% .2% 2% .8%;
+    /* margin-top: 30px; */
+    /* background-color: greenyellow; */
+}
+.content_container .content {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: initial;
+    flex-wrap: wrap;
+}
+
+.content .title {
+    font-size: 60px;
+    flex: initial;
+    font-family: -webkit-body;
+
+}
+.content .subtitle {
+    flex: initial;
+    font-style: italic;
+    font-size: 22px;
+}
+.panel-body {
+    height: 200px;
+    width: 290px;
+    padding: 5px;
+}
+.cart_item {
+    position: relative;
+    flex: initial;
+    /* flex: initial; */
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: wheat; */
+    /* margin: 2px; */
+    height: 380px;
+    width: 350px;
+    overflow: visible;
+}
+.panel-body .item_img_holder {
+    width: 100%;
+    height: 100%;
+
+}
+.paypal_container {
+    margin: 10px;
+    text-align: center;
+    /* padding: 10px 15px; */
+    /* padding: 4px 10px 0px 10px; */
+    /* flex: initial; */
+    border-radius: 100px;
+    background-color: transparent;
+    border: none;
+    /* z-index: -1; */
+    position: absolute;
+    top: 30;
+    bottom: 130px;
+    left: 20;
+}
+.payBtn {
+    /* padding: 0px 10px 20px 30px; */
+    border-radius: 00px;
+    height: 50px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    background-color: transparent;
+}
+/* .payBtn:hover {
+    zoom: 1.2;
+} */
+    /* z-index: -1;
+}
+
+.payBtn img {
+    width: 100%;
+    height: 76%;
+}
+
+
+/* At Media Level maximum 425px Width*/
+@media screen and (max-width : 765px){
+    .content_container .content {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: initial;
+        flex-wrap: wrap;
+        align-items: center;
+        /* background-color: #ff136a; */
+    }
+
+    .body_cotainer .head_container {
+        height: auto;
+        width: 100%;
+        /* margin: 20px; */
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        justify-content: space-evenly;
+        /* min-width: 555px; */
+        flex-wrap: wrap;
+    }
+    .head_container .image_cotainer {
+        flex: .3;
+        flex-shrink: 2;
+        width: auto;
+        /* padding: 0px; */
+        height: 230px;
+        align-self: center;
+        /* right: auto; */
+        /* border: 0.5px solid; */
+        margin: 10px;
+    }
+    .content_container .content {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: initial;
+        flex-wrap: wrap;
+        align-items: center;
+        /* background-color: #ff136a; */
+    }
+    .content .title {
+        font-size: 26px;
+      }
+    .content .subtitle {
+/* background-color: aqua; */
+    font-size: 22px;
+
+    }
+    
+
+}
+
+.body_cotainer .cart_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* background-color: seagreen; */
+    /* padding-right: 15px; */
+    /* padding-left: 10px; */
+    /* margin-right: auto; */
+    /* margin-left: 4%; */
+    /* padding-bottom: 30px; */
+    /* padding-top: 10px; */
+    padding: 10px 0px 20px 10px;
+    margin: 5%;
+}
+.cart_container .cart_title {
+    flex: 1 auto;
+    font-size: 31px;
+    font-weight: 800;
+    color: black;
+    font-family: Spectral;
+    font-size: -webkit-xxx-large;
+    /* padding-left: 1.8%; */
+    margin: 20px;
+    color: #2c2c54;
+}
+.cart_container .cart_content {
+    flex: 4 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 20px;
+    /* background-color: darkgrey; */
+
+}
+.cart_item {
+    flex: initial;
+    /* flex: initial; */
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: wheat; */
+    /* margin: 2px; */
+    height: 380px;
+    width: 350px;
+}
+
+.card {
+    background-color: aquamarine;
+}
+.cart_item .panel {
+    flex: initial;
+    padding: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    overflow: visible;
+    background-color: #fff;
+    border: 1px solid wheat;
+    border-radius: 40px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 4px 2px rgba(20, 10, 60, 1);
+}
+
+.panel-body {
+    height: 200px;
+    position: relative;
+    width: 290px;
+}
+
+.panel-body .image-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.panel-heading {
+    padding: 3px 10px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    text-align: center;
+    font-family: cursive;
+    color: #ff136a;
+    font-weight: 0;
+    font-size: 20px;
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+    text-align: center;
+    font-family: 'Spectral', serif;
+    font-size: 27px;
+    color: #ffcd00;
+    font-weight: 800;
+}
