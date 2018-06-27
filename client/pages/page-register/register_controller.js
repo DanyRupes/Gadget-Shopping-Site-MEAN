@@ -13,7 +13,7 @@ angular.module("RegisterModule",[])
     .clickOutsideToClose('false')
 
     $scope.register =  function(){
-
+console.log($scope.reg_name,$scope.reg_email, $scope.reg_Pass )
         var re = new RegExp("([\\w\\.\\-_]+)?\\w+@[\\w-_]+(\\.\\w+){1,}")
         var check = re.test($scope.reg_email)
 

@@ -1,6 +1,7 @@
 var mongoose = require('mongoose')
 // mongoose.connect("mongodb://localhost:27017/shop")
-url = 'mongodb://localhost:27017/shop'
+// url = 'mongodb://localhost:27017/shop'
+url = 'mongodb://danyrupes:danyrupes007@ds119171.mlab.com:19171/gadget-shop'
 mongoose.connect(url);
 
 
@@ -17,7 +18,7 @@ mongoose.connection.on('error', function(err){
      email : String,
      password : String,
      cart : Array,
-    // _id : String,
+    //  _id : String,
  })
  var item_list = new Schema ({
      id : Number,

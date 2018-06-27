@@ -10,7 +10,12 @@ app.use(cors())
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended:true}))
 var itemTotal;
-
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+    // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+    next();
+  });
 paypal.configure({
     'mode': 'sandbox',
     'client_id' : 'ARNgCGTwpdIemZOIVgnAWMpE2qeIAdS0jROx6ZmNel1P8sEQ3RU0h3rulB7jWT8F3kc8VjsNpL6xIm77',
@@ -109,11 +114,11 @@ app.post('/register', function (req, res) {
     monGo.userProfile.findOne({email : req.body.email},function (err, data) { 
         console.log("data is " +data)
         if(data == null){
-            // console.log("creating new account..")
+            console.log("creating new account..")
                 new monGo.userProfile({name : req.body.name, email:req.body.email, password: req.body.password}).save()
                 .then(function(){
                     res.send(req.body.name) 
-                })          
+                }).catch((err)=>{console.log(err)})          
         }
         else {
             // console.log("Already account present is detected..")

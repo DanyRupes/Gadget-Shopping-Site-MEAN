@@ -1,7 +1,7 @@
 //Geolocation Google Doc
 	https://developers.google.com/maps/documentation/javascript/geolocation
 
-		//geolocation-API
+//geolocation-api
 	https://w3c.github.io/geolocation-api/
 
 	//FORM actions
