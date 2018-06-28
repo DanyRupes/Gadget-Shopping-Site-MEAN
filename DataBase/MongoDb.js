@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 // mongoose.connect("mongodb://localhost:27017/shop")
-// url = 'mongodb://localhost:27017/shop'
-url = 'mongodb://danyrupes:danyrupes007@ds119171.mlab.com:19171/gadget-shop'
+url = 'mongodb://localhost:27017/shop'
+// url = 'mongodb://danyrupes:danyrupes007@ds119171.mlab.com:19171/gadget-shop'
 mongoose.connect(url);
 
 
