@@ -1,4 +1,4 @@
-//Geolocation Google Doc
+//1.Geolocation Google Doc
 	https://developers.google.com/maps/documentation/javascript/geolocation
 
 //geolocation-api
