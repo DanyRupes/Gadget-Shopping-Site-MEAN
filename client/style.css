@@ -1,0 +1,257 @@
+body {
+    background-color: white ;
+    /* background: url('../../../Styles/Images/sunset_minimal_5k.jpg'); */
+    background-position: center;
+    background-color: white;
+
+    /* background */
+}
+footer {
+    background-color: black;
+}
+footer .row {
+    margin: 0px;
+    padding: 0px 10px 0px 20px;
+    margin-bottom: -12px;
+}
+.footerHead {
+    padding: 50px 20px 20px 20px;
+    background-color: black;
+}
+.footerTop {
+    display: flex;
+    text-align: center;
+}
+.footerHead .rowItems {
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+text-align: center;
+}
+.rowItems .rowTech1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 10px 50px 10px;
+}
+.techTitle{
+    font-size: 50px;
+    font-family: fantasy;
+    color: cornflowerblue;
+}
+.qoneTitle {
+    font-size: 35px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: cornflowerblue;
+}
+.social {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+.social li {
+    margin-top: auto !important;
+}
+.technoImg {
+    width: 25%;
+    display: grid;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+}
+.technoImg2 {
+    width: 37%;
+    display: grid;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.externalTech {
+    width: 25%;
+    align-self: center;
+    padding-bottom: 20px;
+}
+.footermiddle {
+    padding: 0px 10px 10px 20px;
+}
+.footermiddle .footMidItem {
+    padding: 20px 2px 20px 2px;
+}
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 3px 10px 3px;
+}
+.contactForm input {
+    text-align: center;
+    line-height: 40px;
+    border: none;
+    color: rgb(8, 218, 60);
+    padding: 8px 8px;
+    background-color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.contactForm input:focus {
+    border: none;
+    font-weight: 300 !important;
+    outline: none;
+    letter-spacing: 1.3px;
+    border-bottom: 1px solid blue;
+    box-shadow:  rgb(51, 35, 173);
+}
+.contactForm textarea {
+    text-align: center;
+    line-height: 8px;
+    border: none;
+    padding: 18px 8px;
+    background-color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    resize: none;
+    color: rgb(8, 218, 60);
+    margin-bottom: 10px;
+}
+.contactForm textarea:focus {
+    letter-spacing: 1.3px;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    border-bottom: .6px solid  rgb(51, 35, 173);
+    margin-bottom: 10px;
+}
+.msgSend {
+    align-self: center;
+    width: 90px;
+    padding: 4px;
+    border-radius: 100px;
+    border: .6px solid;
+    background-color: black;
+    color: rgb(51, 35, 173);
+}
+.msgSend:focus {
+outline: none;
+
+}
+.msgSend:active {
+    border: .6px solid;
+    background-color: black;
+    color: rgb(8, 218, 60);
+}
+.soneDesc {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    color: rgb(12, 191, 204);
+    text-align: center;
+}
+.social  {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly
+}
+.social  li {
+    margin-top: auto !important;
+    padding: 1px;
+}
+.footerBottom{
+    width: 100%;
+    background-color: black;
+    /* margin-bottom: -15px; */
+    border-top: 1px solid;
+}
+.fbottom_left {
+    display: flex;
+    color: #ff136a;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+.fbootomText {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+@media (min-width : 769px) {
+    .footerHead {
+        display: flex;
+        padding: 50px 20px 20px 20px;
+        background-color: black;
+    }
+    .footerTop {
+        display: flex;
+        text-align: center;
+    }
+    .footerHead .rowItems {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .techTitle {
+        align-self: center;
+        font-size: 50px;
+        font-family: fantasy;
+        color: cornflowerblue;
+        flex: 1 1 auto;
+    }
+    .rowItems .rowTech1 {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        padding: 0px 10px 10px 10px;
+    }
+    .technoImg {
+        width: 25%;
+        display: grid;
+        justify-content: space-evenly;
+        align-items: center;
+        align-content: center;
+    }
+    .technoImg2 {
+        width: 23%;
+        display: flex;
+        /* display: grid; */
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .externalTech {
+        /* flex-flow: column-reverse; */
+        flex: 1 1 auto;
+        /* display: flex; */
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        padding: 0px 10px 10px 10px;
+        width: 25%;
+        align-self: center;
+        padding-bottom: 20px;
+    }
+    .contactForm {
+        padding: 10px 20px 10px 30px;
+    }
+    .contactForm input {
+       text-align: left;
+    }
+
+    .soneDesc {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 25px;
+        color: rgb(12, 191, 204);
+        text-align: left;   
+        display: grid;
+        justify-content: center;
+    }
+    .footermiddle .footMidItem {
+        padding: 20px 2px 20px 2px;
+    }
+    .social {
+        justify-content: center;
+    }
+
+}

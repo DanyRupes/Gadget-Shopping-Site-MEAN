@@ -11,14 +11,7 @@
     text-align: center;
 } */
 
-body {
-    background-color: white ;
-    /* background: url('../../../Styles/Images/sunset_minimal_5k.jpg'); */
-    background-position: center;
-    background-color: white;
-    color: #ff136a;
-    /* background */
-}
+
 
 .body_cotainer {
     width: 100%;

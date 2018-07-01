@@ -14,7 +14,7 @@ var app =angular.module('myStore',['HomeModule','addShop',
     .when('/list_home', {
         templateUrl : 'pages/page-item-list-home/H_item_list.html',
         controller : 'H_item_list_controller',
-        // css : 'pages/page-item-list-home/item_list_Style.css'
+        css : 'pages/page-item-list-home/item_list_Style.css'
     })
     .when('/order', {
         templateUrl : 'pages/page-order/order.html',
@@ -48,6 +48,9 @@ var app =angular.module('myStore',['HomeModule','addShop',
     .when('/itemAdd', {
         templateUrl : 'pages/page-item-adder/adder.html',
         controller : 'adderController',
+    })
+    .when('/contactSuccess',{
+        templateUrl : 'pages/page-success/show.html'
     })
     .otherwise ({
         redirectTo : '/home'

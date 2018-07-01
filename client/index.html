@@ -27,15 +27,18 @@
     <!-- Jquery -->
     <script src="/jquery.min.js"></script>
     <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <!-- Bootstrap -->
     <link rel='stylesheet' href='/bootstrap.min.css'>
     <script src="/ui-bootstrap-tpls-2.5.0.js"></script>
     <script src="/bootstrap.min.js"></script>
-    <link rel='stylesheet' href="/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <link rel='stylesheet' href="font-awesome.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"> -->
 
-    <link rel='stylesheet' href="./pages/page-item-list-home/item_list_Style.css">
+
+
+    <link rel="stylesheet" href="style.css">
     <title>Gadget Buyer</title>
     <script src="./app.js"></script>
     
@@ -45,6 +48,104 @@
     <mynavbar></mynavbar>
  
     <div ng-view></div>
+
+    <footer>
+                <div class="footerHead">
+                        <div class="rowItems col-md-4">
+                                        <p class="techTitle">Technology Used</p>
+                                        <div class="rowTech1">
+                                                <div class="col-md-3 technoImg col-sm-6">
+                                                <img class="img-thumbnail" src="/angular.png" title="AngularJS">
+                                                </div>
+                                                <div class="col-md-3 technoImg col-sm-6">
+                                                        <img class="img-thumbnail" src="/bootstrap.png" title="Bootstrap">
+                                                </div>
+                                                <div class="col-md-3 technoImg col-sm-6">
+                                                        <img class="img-thumbnail" src="/nodejs.png" title="NodeJS">
+                                                </div>
+                                                <div class="col-md-3 technoImg col-sm-6">
+                                                        <img class="img-thumbnail" src="/mongodb.png" title="MongoDB">
+                                                </div>
+                                        </div>
+                        </div>
+
+                        <div class="col-md-4 rowItems">
+                                <p class="techTitle">Hosted Using</p>
+                                <div class="rowTech1">
+                                                <div class="col-md-4 technoImg2 col-sm-6 ">
+                                                        <img class="img-thumbnail" src="/aws_ec2.png" title="AWS EC2">
+                                                </div>
+                                                <div class="col-md-4 technoImg2 col-sm-6 ">
+                                                        <img class="img-thumbnail" src="/route53.png" title="AWS Route53">
+                                                </div>
+                                </div>
+                        </div>
+                
+                        <div class="col-md-4 rowItems">
+                                <p class="techTitle">External API's</p>
+                                        <div class="col-md-12 externalTech col-sm-12">
+                                        <img class="img-thumbnail" src="/maps.png" title="Google Maps">
+                                        </div>
+                        </div>
+
+                </div>
+                <div class="row footermiddle">
+                        <div class="col-md-4 footMidItem">
+                                <p class="qoneTitle">Contact</p>
+                                <form class="contactForm" method="POST" action="/contactmsg">
+                                                <input type="text" class="" name="name" placeholder="Name" autocomplete="off" required>
+                                                <input type="email"  class="" placeholder="Email" name="email" placeholder="Enter Email" autocomplete="off" required>
+                                                <input type="text" name="subject" placeholder="Subject" autocomplete="off" >
+                                                <textarea type="text" name="msg" class="form-control" rows="5" placeholder="Drop your Message" required></textarea>
+
+                                                <button  type="submit" class="msgSend">Send</button>
+                                </form>
+                        </div>
+                        <div class="col-md-4 footMidItem">
+                                        <p class="qoneTitle">
+                                                        Headuarters
+                                                </p>
+                                                <span class="soneDesc">
+                                                        <p>4/36, Ammans Nagar</p>
+                                                        <p>Vadamadurai</p>
+                                                        <p>Coimbatore-641 017</p>
+                                                        <p>India</p>
+                                                </span>
+                        </div>
+                        <div class="col-md-4 footMidItem">
+                                        <p class="qoneTitle"> Caught On : </p>
+                                 <ul class="social"> 
+                                                        <li><a href="https://github.com/DanyRupes" target="_blanck"><i  class="fa fa-fw fa-github"  title="github"></i></a></li>
+                                                        <li><a href="https://www.linkedin.com/in/dany-rupes-646223126/" target="_blanck"><i  class="fa fa-fw fa-linkedin" title="linkedIn"></i></a></li>
+                                                        <li><a href="https://www.freecodecamp.org/danyrupes" target="_blanck"><i  class="fa fa-fw fa-free-code-camp" title="freecodecamp"></i></a></li>
+                                                        <li><a href="https://www.facebook.com/Danyrupes" target="_blanck"><i  class="fa fa-fw fa-facebook"  title="facebook"></i></a></li>
+                                                        <li><a href="https://web.whatsapp.com/" target="_blanck"><i  class="fa fa-fw fa-whatsapp" title="WhatsAPP"></i></a></li>
+                                                        <li><a href="https://twitter.com/dany_rupes" target="_blanck"><i  class="fa fa-fw fa-twitter"  title="Twitter"></i></a></li>        
+                                </ul>
+                        </div>
+                </div>
+                <div class="footerBottom">
+                        <div class="fbottom_left">
+                                <span class="fbootomText">
+                                        Made By <strong style="padding-right: 3px">Dany</strong>with <i class="fa fa-coffee"></i>.
+                                </span>
+                        </div>
+                </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="./pages/page-home/homeController.js"></script>
     <script src="pages/page-item-list-home/H_item_list_controller.js"></script>
     <script src="./pages/page-addShop/addShopControl.js"></script>
@@ -56,7 +157,5 @@
     <script src="./pages/page-order/orderController.js"></script>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwArf3UZ8LHQVP9t7leDaRa3GOoThT1zc&libraries=places&callback=myMap"></script>         -->
     <!-- for image upload angular.. -->
-   
-    
 </body>
 </html>

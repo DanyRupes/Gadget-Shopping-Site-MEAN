@@ -1,4 +1,11 @@
-
+.body_container {
+    background-color: gainsboro;
+    /* position: relative; */
+    margin: auto;
+    width: 500px;
+    height: 100%;
+    border-radius: 100px;
+}
 
 .body_container .login_content {
     display: flex;
@@ -28,7 +35,7 @@
         font-family: monospace;
         padding: 20px;
     }
-    input {
+    .login_content input {
         text-align: center;
         font-family: monospace;
         font-size: inherit;
@@ -38,9 +45,9 @@
         border-radius: 100px;
         border: 1px solid midnightblue;
     }
- input:hover {
+    .login_content input:hover {
     border: 2.6px solid midnightblue;}
- input:focus {
+    .login_content input:focus {
      outline: none;}
 .content .pass_ {
     flex: initial;
@@ -125,7 +132,7 @@
         flex: initial;
         padding: 10px 20px 20px 20px;
     }
-    input {
+    .login_content input {
         text-align: center;
         font-family: monospace;
         font-size: inherit;
@@ -211,7 +218,7 @@
         }
         .content .email_ {
             flex: initial;
-            padding: px;
+
             padding: 0px 35px 10px 35px;
         }
         .content .pass_ {
@@ -260,7 +267,7 @@
 @media screen and (min-width : 766px) {
     .container {
         width: 520px;
-        height: 470px;
+        height: auto;
         padding: 10px 30px 10px 20px;
     }
     .body_container {
@@ -268,7 +275,7 @@
         /* position: relative; */
         margin: auto;
         width: 500px;
-        height: 520px;
+        height: 500px;
         border-radius: 100px;}
 }
 

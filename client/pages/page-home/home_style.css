@@ -6,9 +6,7 @@ margin-top: 5px;
 background: gray; 
 }
 
-body {
-    background-color: blue;
-}
+
 
 .carousel { 
     
@@ -20,6 +18,11 @@ body {
     padding: 0%;
     margin-right: auto;
     margin-left: auto;
+}
+.carousel-control {
+    display: grid;
+    justify-content: center;
+    align-content: center;
 }
 
 .body_container {

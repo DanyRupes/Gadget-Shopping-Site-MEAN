@@ -1,2 +1,2 @@
-# Gadget-Shop(MEAN) http://gadget.code-your-road.tk
+# Gadget-Shop(MEAN)
 Gadget Shopping website using MEAN Stack

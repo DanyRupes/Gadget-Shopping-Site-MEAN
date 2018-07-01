@@ -1,7 +1,13 @@
 var appAnglr = angular.module('HomeModule', []);
 appAnglr.controller('homeController', function($scope,$rootScope){
+var home_userName = localStorage.getItem('user_name');
+if(home_userName !== "undefined"){
+  $scope.home_userName = home_userName;
+}
+else {
+  $scope.home_userName = "from Gadget Home";
 
-
+}
 var map;
 var infowindow;
 var currentLatLng;
@@ -29,7 +35,7 @@ function myMap() {
   
        map = new google.maps.Map(document.getElementById('map'), {
           center: LoC,
-          zoom: 18
+          zoom: 15
     });
   
   //nearbySearch Start 

@@ -133,8 +133,8 @@ app.post('/register', function (req, res) {
           "payment_method": "paypal"
       },
       "redirect_urls": {
-          "return_url": "http://localhost:8080/success",
-          "cancel_url": "http://localhost:8080/cancel"
+          "return_url": "http://gadget.code-your-road.tk/success",
+          "cancel_url": "http://gadget.code-your-road.tk/cancel"
       },
       "transactions": [{
           "item_list": {
@@ -165,7 +165,7 @@ app.post('/register', function (req, res) {
         for(var i=0;i<payment.links.length;i++){
             if(payment.links[i].rel === 'approval_url'){
                 url = payment.links[i].href.replace(/%20/g, "");
-                console.log(url)
+                // console.log(url)
                 res.send(url)
               }
         }
@@ -195,7 +195,7 @@ app.get('/success', function(req, res){
         }
         else { 
             console.log(payment)
-            res.send('Success')
+            res.redirect('#/contactSuccess')
         }
         // res.redirect('/#/profile')
      })
@@ -215,6 +215,11 @@ app.post('/removeCart',function (req, res) {
      })
  })
 
+
+ app.post('/contactmsg',function (req, res) { 
+     console.log(req.body.name,req.body.email,req.body.subject,req.body.msg)
+     res.redirect('http://localhost:9000/#/contactSuccess')
+  })
  module.exports = app
 // var LocalStorage = require('node-localstorage').LocalStorage;
 // localStorage = LocalStorage('./');
