@@ -1,0 +1,154 @@
+.tr-pc {
+    background-color: white;
+}
+
+.container-fluid{
+    padding: 0px;
+}
+.spic img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+.img-h    {
+    width: 100%;
+}
+.spic .picText {
+    z-index: 10;
+    font-size: 40px;
+    font-weight: 500;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    padding: 30px;
+    width: 100%;
+    text-align: center;
+    text-overflow: inherit;
+}
+.rg-cp {
+    width: 100%;
+    padding: 0px;
+}
+.rg-cpr {
+    width: 100%;
+    padding: 2%;
+    background-color: mediumseagreen;
+    display: inline-flex;
+    border-bottom: 1px solid gray;
+    justify-content: center;
+}
+.rg-cpr .regt{
+    font-size: 34px;
+    font-weight: 500;
+    font-family: Helvetica;
+}
+.rgfc {
+    width: 100%;
+    padding: 40px;
+}
+
+.rgf {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+.regf-ic {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 40px;
+    color: rgb(5, 94, 197);
+}
+.regf-ic form {
+    display: flex;
+    flex-direction: column;
+}
+.regf-ic form button {
+    width: 30%;
+    margin-left: 100px;
+    align-self: flex-start;
+}
+.regf-ic label {
+    padding: 15px;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: cursive;
+    letter-spacing: 0.9px;
+}
+.regf-ic input {
+    margin-bottom: 10%;
+    padding: 5px 16px 9px 16px;
+    margin: 0% 0% 6% 5%;
+    border: none;
+    text-decoration-line: none;
+    font-size: 26px;
+    font-weight: 400;
+    width: 50%;
+    border-bottom-color: black;
+    border-bottom: 1px solid green;
+    font-family: Garamond;
+}
+.regf-ic input:focus {
+    outline: none;
+}
+
+.regf-info {
+    width: calc(101% / 2);
+    text-align: center;
+}
+.regf-info h4 {
+    text-align: flex-end;
+    font-size: 18px;
+    font-family: initial;
+    opacity: .9;
+    color: rgb(220, 206, 23);
+}
+
+
+
+@media only screen and (max-width : 766px)  and (min-width :360px){
+    .regf-ic form button {
+        width: 100%;
+        align-self: flex-end;
+    }
+    .regf-ic label {
+        padding: 20px;
+        padding-bottom: 0px;
+        font-size: 22px;
+        font-weight: 500;
+        font-family: cursive;
+        letter-spacing: 0.9px;
+    }
+    .regf-ic input {
+        padding: 9px 16px 9px 16px;
+        margin: 0% 0% 9% 0%;
+        border: none;
+        font-size: 16px;
+        text-decoration-line: none;
+        font-weight: 400;
+        width: 100%;
+        border-bottom-color: black;
+        border-bottom: 1px solid green;
+        font-family: Garamond;
+        color: mediumseagreen;
+        overflow: visible;
+    }
+    .spic .picText {
+        z-index: 10;
+        font-size: 24px;
+        font-weight: 500;
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+        text-overflow: inherit;
+    }
+    .regf-info {
+        width: 100%;
+        text-align: center;
+    }
+}

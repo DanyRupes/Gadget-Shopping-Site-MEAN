@@ -6,4 +6,62 @@
         <htmlcode></htmlcode> -->
 
         <!-- <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Z0xfEZyEvpG3QbkT7YF7PvciM6-cQJ_8" width="100%" height="520"></iframe> -->
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Z0xfEZyEvpG3QbkT7YF7PvciM6-cQJ_8" width="100%" height="520"></iframe>
+        <!-- <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Z0xfEZyEvpG3QbkT7YF7PvciM6-cQJ_8" width="100%" height="520"></iframe> -->
+
+        <div class="tr-pc container-fluid">
+                <div class="img-h spic">
+                    <img class="" src="/relationship.jpeg">
+                    <h2 class="picText">
+                        Be Ready to Re-Connect with Your Customers
+                    </h2>
+                </div>
+
+                <div class="rg-cp container-fluid">
+                    <div class="rg-cpr">
+                        <span class="regt">Register Your Shop</span>
+                    </div>
+                    <div class="rgfc">
+                        <div class="rgf">
+                            <div class="regf-ic">
+                              <form  name="Fshop" ng-submit="addMeDood();">
+                                <label>
+                                    Shop Name : 
+                                </label>
+                                <input type="text" ng-model="sname" autocomplete="false" required >
+                                <label >
+                                    Shop ID : 
+                                </label>
+                                <input type="text" ng-model="sid"  autocomplete="false" required>
+                                <label>
+                                    Shop Owner : 
+                                </label>
+                                <input type="text" ng-model="owner"  autocomplete="false" required>
+                                <label >
+                                    Email : 
+                                </label>
+                                <input type="email" ng-model="mail"  autocomplete="false"required >
+                                <label >
+                                    Phone : 
+                                </label>
+                                <input type="text" ng-model="phone"  autocomplete="false"required >
+                                <label >
+                                    Shop License (type) : 
+                                </label>
+                                <input type="text" ng-model="lice"  autocomplete="false"required >
+                                <label >
+                                    City : 
+                                </label>
+                                <input ng-readonly="true" type="text" ng-model="scity">
+                                <button ng-disabled="Fshop.$invalid" type="submit" class="btn btn-info">Submit</button>
+                              </form>
+
+                            </div>
+
+                        </div>
+                        <div class="regf-info"><h4 >After you have registered we Will reach you soon</h4></div>
+                    </div>
+
+                </div>
+        </div>
+        
+        </div>

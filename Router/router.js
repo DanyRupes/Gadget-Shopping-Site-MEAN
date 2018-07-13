@@ -220,6 +220,13 @@ app.post('/removeCart',function (req, res) {
      console.log(req.body.name,req.body.email,req.body.subject,req.body.msg)
      res.redirect('http://localhost:9000/#/contactSuccess')
   })
+
+app.post('/addMeDood',function (req, res) { 
+    console.log(req.body)
+    new monGo.addReqShop({sId : req.body.sid,sName :req.body.sname, sMail : req.body.mail,sOwner : req.body.owner,sNo : req.body.phone, sLice : req.body.lice, sCity  :req.body.scity}).save()
+    res.send("okay")
+ })
+
  module.exports = app
 // var LocalStorage = require('node-localstorage').LocalStorage;
 // localStorage = LocalStorage('./');

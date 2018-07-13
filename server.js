@@ -6,7 +6,7 @@ app.use('/', router)
 
 
 
-var port = 9000;
+var port = 80;
 app.listen(port)
 console.log(port)
 

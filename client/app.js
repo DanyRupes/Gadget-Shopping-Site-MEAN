@@ -28,6 +28,7 @@ var app =angular.module('myStore',['HomeModule','addShop',
     .when('/addShop',{
         templateUrl : 'pages/page-addShop/addShop.html',
         controller : 'addShopController',
+        css : 'pages/page-addShop/addShops.css'
    
     })
     .when('/aboutus',{
