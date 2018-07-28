@@ -106,13 +106,13 @@ app.post('/login', function (req, res) {
 app.post('/addtoMyCart', function(req, res){
    monGo.userProfile.updateOne({email : req.body.email},{$addToSet:{cart : req.body.item}}, function (err, out) { 
        if(err){console.log("err : "+err)}
-       console.log(out)
+    //    console.log(out)
        res.send("success")
     })
 })
 app.post('/register', function (req, res) {
     monGo.userProfile.findOne({email : req.body.email},function (err, data) { 
-        console.log("data is " +data)
+        // console.log("data is " +data)
         if(data == null){
             console.log("creating new account..")
                 new monGo.userProfile({name : req.body.name, email:req.body.email, password: req.body.password}).save()
@@ -158,7 +158,7 @@ app.post('/register', function (req, res) {
   itemTotal = req.body.item_price;
   paypal.payment.create(create_payment_json, function (err, payment) {
     if(err){
-        console.log('check create Error')
+        // console.log('check create Error')
         console.log(err)
     }
     else{ 

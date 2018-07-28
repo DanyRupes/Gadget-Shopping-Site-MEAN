@@ -1,5 +1,4 @@
-var app =angular.module('myStore',['HomeModule','addShop',
-    'OrderModule','RegisterModule','item_list_module','Adder','Login','ngFileUpload',
+var app =angular.module('myStore',['HomeModule','addShop','RegisterModule','item_list_module','Adder','Login','ngFileUpload',
     'ngRoute','ngMaterial', 'ngMessages','ngAnimate', 'ngSanitize', 'ui.bootstrap','Aboutus',
     'Profile','angularCSS']);
 
@@ -16,10 +15,10 @@ var app =angular.module('myStore',['HomeModule','addShop',
         controller : 'H_item_list_controller',
         css : 'pages/page-item-list-home/item_list_Style.css'
     })
-    .when('/order', {
-        templateUrl : 'pages/page-order/order.html',
-        controller : 'orderController'
-    })
+    // .when('/order', {
+    //     templateUrl : 'pages/page-order/order.html',
+    //     controller : 'orderController'
+    // })
     .when('/register',{
         templateUrl : 'pages/page-register/register.html',
         controller : 'register_controller',

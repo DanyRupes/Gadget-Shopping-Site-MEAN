@@ -22,59 +22,177 @@ appAnglr.directive('gadgetmap', function() {
     link: function($scope, $el) {
 
       var script = document.createElement('script');
-      script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDwArf3UZ8LHQVP9t7leDaRa3GOoThT1zc&libraries=places&callback=myMap'
+      script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDwArf3UZ8LHQVP9t7leDaRa3GOoThT1zc&callback=myMap'
       $el.append(script);
     }
   }
 });
-
+// script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDwArf3UZ8LHQVP9t7leDaRa3GOoThT1zc&libraries=places&callback=myMap'
+const mapStyle = [
+  // {
+  //   "featureType": "administrative",
+  //   "elementType": "all",
+  //   "stylers": [
+  //     {
+  //       "visibility": "on"
+  //     },
+  //     {
+  //       "lightness": 33
+  //     }
+  //   ]
+  // },
+  // {
+  //   "featureType": "landscape",
+  //   "elementType": "all",
+  //   "stylers": [
+  //     {
+  //       "color": "#f2e5d4"
+  //     }
+  //   ]
+  // },
+  // {
+  //   "featureType": "poi.park",
+  //   "elementType": "geometry",
+  //   "stylers": [
+  //     {
+  //       "color": "#c5dac6"
+  //     }
+  //   ]
+  // },
+  // {
+  //   "featureType": "poi.park",
+  //   "elementType": "labels",
+  //   "stylers": [
+  //     {
+  //       "visibility": "on"
+  //     },
+  //     {
+  //       "lightness": 20
+  //     }
+  //   ]
+  // },
+  {
+    "featureType": "road",
+    "elementType": "all",
+    "stylers": [
+      {
+        "lightness": 20
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#c5c6c6"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e4d7c6"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#fbfaf7"
+      }
+    ]
+  },
+  // {
+  //   "featureType": "water",
+  //   "elementType": "all",
+  //   "stylers": [
+  //     {
+  //       "visibility": "on"
+  //     },
+  //     {
+  //       "color": "#acbcc9"
+  //     }
+  //   ]
+  // }
+];
 ////googel map call back functions
 function myMap() {
   // console.log("check 3")
-      var LoC = {lat: 11.0168, lng:  76.9558}; 
+      var LoC = {lat: 11.0128, lng:  76.9598}; 
   
        map = new google.maps.Map(document.getElementById('map'), {
           center: LoC,
-          zoom: 15
+          zoom: 13,
+          // styles : mapStyle
     });
-  
+    
+    map.data.loadGeoJson('stores.json');
+
+    var infoWindow = new google.maps.InfoWindow();
+    map.data.addListener('click', event => {
+      let category = event.feature.getProperty('category');
+     let name = event.feature.getProperty('name');
+     let description = event.feature.getProperty('description');
+     let hours = event.feature.getProperty('hours');
+     let phone = event.feature.getProperty('phone');
+     let position = event.feature.getGeometry().get();
+     
+    //  <img style="float:left; width:200px; margin-top:30px" src="img/logo_${category}.png">
+     let content = `
+         <div>
+         <h2>${name}</h2><p>${description}</p>
+         <p><b>Open:</b> ${hours}<br/><b>Phone:</b> ${phone}</p>
+         </div>
+         `;
+        //  <p><img src="https://maps.googleapis.com/maps/api/streetview?size=350x120&location=${position.lat()},${position.lng()}&key=AIzaSyA67KXhTdxmGxcEKQNptMorMGDE3A1V7nI"></p>
+    //  console.log(event)
+     infoWindow.setContent(content);
+     infoWindow.setPosition(position);
+     infoWindow.setOptions({pixelOffset : new google.maps.Size(0, -30)});
+     infoWindow.open(map);
+   });
   //nearbySearch Start 
-      infowindow = new google.maps.InfoWindow();
-      var service = new google.maps.places.PlacesService(map);
-      service.nearbySearch({
-      location: LoC,
-      radius: 1000,
-      type: ['electronics_store'] ////https://developers.google.com/places/supported_types
-      }, callback);
+      // infowindow = new google.maps.InfoWindow();
+      // var service = new google.maps.places.PlacesService(map);
+      // service.nearbySearch({
+      // location: LoC,
+      // radius: 1000,
+      // type: ['electronics_store'] ////https://developers.google.com/places/supported_types
+      // }, callback);
      
     }
-    function callback(results, status) {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (var i = 0; i < results.length; i++) {
-          createMarker(results[i]);
-        }
-      }
-    }
-  //Marker
-    function createMarker (place){
-      var locatePlace = place.geometry.location;
-      var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location,
-          animation:google.maps.Animation.DROP,
-        });
-      google.maps.event.addListener(marker, 'mouseover', function() {
-        infowindow.setContent(place.name + " " +place.vicinity+ " ")
-              // console.log(place)
-          infowindow.open(map,this);
+  //   function callback(results, status) {
+  //     if (status === google.maps.places.PlacesServiceStatus.OK) {
+  //       for (var i = 0; i < results.length; i++) {
+  //         createMarker(results[i]);
+  //       }
+  //     }
+  //   }
+  // //Marker
+  //   function createMarker (place){
+  //     var locatePlace = place.geometry.location;
+  //     var marker = new google.maps.Marker({
+  //         map: map,
+  //         position: place.geometry.location,
+  //         animation:google.maps.Animation.DROP,
+  //       });
+  //     google.maps.event.addListener(marker, 'mouseover', function() {
+  //       infowindow.setContent(place.name + " " +place.vicinity+ " ")
+  //             // console.log(place)
+  //         infowindow.open(map,this);
     
-          // window.close();
-          });
+  //         // window.close();
+  //         });
   
-          google.maps.event.addListener(marker, 'click', function() {
-          window.location.href = '/#/list_home';
-      });
-    }
+  //         google.maps.event.addListener(marker, 'click', function() {
+  //         window.location.href = '/#/list_home';
+  //     });
+  //   }
 
 
         // $scope.name = alert('hello Map')

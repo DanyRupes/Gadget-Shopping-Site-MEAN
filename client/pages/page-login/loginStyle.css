@@ -1,11 +1,10 @@
 .body_container {
-    background-color: gainsboro;
+    /* background-color: gainsboro; */
     /* position: relative; */
     margin: auto;
-    width: 500px;
+    width: 100%;
     height: 100%;
-    border-radius: 100px;
-}
+    border-radius: 100px;}
 
 .body_container .login_content {
     display: flex;
@@ -96,14 +95,6 @@
         height: 100%;
         /* padding: 15px 20px 15px 20px;     */
     }
-    .body_container {
-        background-color: gainsboro;
-        /* position: relative; */
-        margin: auto;
-        width: 100%;
-        height: 100%;
-        border-radius: 100px;
-    }
     .body_container .login_content {
         display: flex;
         flex-direction: column;
@@ -186,7 +177,7 @@
         /* padding: 15px 20px 15px 20px;     */
     }
     .body_container {
-        background-color: gainsboro;
+        /* background-color: gainsboro; */
         /* position: relative; */
         margin: auto;
         width: 100%;
@@ -250,28 +241,21 @@
 }
 }
 
-@media (min-width : 539px) and (max-width: 766px){
+@media (min-width : 539px) and (max-width: 767px){
     .container {
         width: 80%;
         height: auto;
         padding: 15px 20px 15px 20px;    
     }
-    .body_container {
-        background-color: gainsboro;
-        /* position: relative; */
-        margin: auto;
-        width: 100%;
-        height: 100%;
-        border-radius: 100px;}
 }
-@media screen and (min-width : 766px) {
+@media screen and (min-width : 768px) {
     .container {
         width: 520px;
         height: auto;
         padding: 10px 30px 10px 20px;
     }
     .body_container {
-        background-color: gainsboro;
+        /* background-color: gainsboro; */
         /* position: relative; */
         margin: auto;
         width: 500px;

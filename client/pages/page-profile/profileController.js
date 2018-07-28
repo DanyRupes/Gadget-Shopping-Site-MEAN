@@ -40,7 +40,7 @@ angular.module("Profile",[])
     }
 
         $scope.payPal = function (item) {
-
+           document.querySelector('.overlay').style.display = "block";
             $http({
                 method : 'POST',
                 url : '/payNow',
@@ -64,7 +64,7 @@ angular.module("Profile",[])
                     console.log("Payer ID and Payment ID received")
                  
                 }).catch((Er)=>{
-                    alert("What is this")
+                    // alert("What is this")
                     console.log(Er)
                 })  
             }).catch((err)=>{

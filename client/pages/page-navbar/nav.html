@@ -1,14 +1,35 @@
 
-
-<nav class="navbar navbar-light bg-light navbar-inverse ">
         <style>
+                .nav>li>a{
+                    font-size: 17px;
+                    color: #205627 !important;
+                }
+                .nav>li>a:hover{color: #0000de !important}
+                .navbar-inverse {
+                    background-color: hsla(163, 84%, 32%, 0.94);
+                }
+                .navbar-brand {
+                    color: white !important;
+                }
+                .navbar-brand:hover {color: springgreen !important}
                 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
                 margin: 0px !important;
             }
+            @media screen and (min-width : 768px){
+                .container-fluid> .navbar-header {width : 100%;display: flex;justify-content: space-between;}
+            }
             </style>
+<nav style="border-radius: 0 !important;" class="navbar navbar-light bg-light navbar-inverse ">
+
         <div class="container-fluid">
                 <div class="navbar-header">
-
+                        <style>
+                            .navbar-brand{
+                                font-size: 23px;
+                                color: lightcyan;
+                                font-weight: 800;
+                            }
+                        </style>
                         <a class="navbar-brand" href="#/list_home">Gadget Shop</a>   
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarNavDropdown" aria-expanded="false">
                 <span class="icon-bar"></span>
@@ -22,10 +43,10 @@
     <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button> -->
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown" style="    background-color: #eeeeee;">
         <ul class="nav navbar-nav"  style="display: inline;">
             <li class="nav-item">
-                <a class="nav-link active"   href="#/home">Home</a></li>
+                <a class="nav-link "   href="#/home">Home</a></li>
             <li class="nav-item">
                 <a class="nav-link"   href="#/list_home">Products</a>
             </li>
