@@ -1,0 +1,50 @@
+{
+    "type" : "FeatureCollection",
+    "features" : [
+        {
+            "geometry" : {
+                "type" : "Point",
+                "coordinates" : [76.936483,11.023197 ]
+            },
+            "type" : "Feature",
+            "properties" : {
+                "name" : "HP World",
+                "category" : "PC/Laptops",
+                "hours" :"10Am - 9.00PM",
+                "description" : "Keep reinventing With HP",
+                "phone" : "+91 8098733317",
+                "address" : "100 Feet Rd, Gandhipuram, Coimbatore, Tamil Nadu 641012, India"
+             }
+        },
+        {
+            "geometry" : {
+                "type" : "Point",
+                "coordinates" : [77.002101, 11.024692]
+            },
+            "type" : "Feature",
+            "properties" : {
+                "name" : "Mobile Express",
+                "category" : "Laptops/Mobiles/Accessories",
+                "hours" :"10Am - 9.00PM",
+                "description" : "Get amazing Offer with Quality of our Mobile Express",
+                "phone" : "+91 8098733317",
+                "address" : "100 Feet Rd, Gandhipuram, Coimbatore, Tamil Nadu 641012, India"
+             }
+        },
+        {
+            "geometry" : {
+                "type" : "Point",
+                "coordinates" : [76.97206, 11.000196]
+            },
+            "type" : "Feature",
+            "properties" : {
+                "name" : "Digital Paradise",
+                "category" : "Mobiles/Accessories",
+                "hours" :"10Am - 9.00PM",
+                "description" : "All Type of Mobile Accessories are Available",
+                "phone" : "+91 8098733317",
+                "address" : "100 Feet Rd, Gandhipuram, Coimbatore, Tamil Nadu 641012, India"
+             }
+        }
+    ]
+}
