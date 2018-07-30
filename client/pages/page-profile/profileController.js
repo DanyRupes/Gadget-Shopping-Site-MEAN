@@ -1,5 +1,7 @@
 angular.module("Profile",[])
-.controller("profileController", function ($mdDialog,$scope,$http,$rootScope) { 
+.controller("profileController", function ($mdDialog,$scope,$http,$rootScope,Upload) { 
+
+
 
     var plLogin = $mdDialog.confirm()
     .title('Login')
@@ -7,10 +9,10 @@ angular.module("Profile",[])
     .ok('Login')
     .clickOutsideToClose(false)  
     
+    $scope.propic = "avatar-no.png";
     var userName =  localStorage.getItem('user_name')
     var userEmail =  localStorage.getItem('user_email')
     var userPresent =  localStorage.getItem('user_present')
-
     if(userPresent=='true'){
         $http({
             url : '/load_profile',
@@ -25,7 +27,7 @@ angular.module("Profile",[])
              $scope.Cart = Porfile.cart;
              $scope.user_name = Porfile.name; 
              $scope.user_email = Porfile.email; 
-
+             $scope.propic = Porfile.userpic;
          }).catch((err) => {
              console.log(err)
          });
@@ -38,7 +40,29 @@ angular.module("Profile",[])
         })
 
     }
+    // try{
+    //     var picpic = $scope.__file.name;
+    //     console.log("Pic"+$scope.__file)
+    // }
+    // catch(e){console.log(e)}
 
+    $scope.updatePic = function (_file) { 
+        console.log(_file.name)
+        // console.log("Pic"+$scope.__file)
+        if(_file.name !=null){
+            Upload.upload({
+                url : '/updatePropic',
+                method : 'POST',
+                data : {
+                    image : _file,
+                    userEmail : userEmail,
+                }
+            }).then((out)=>{
+                $scope.propic = _file.name;
+            }).catch((err)=>{console.log(err)})
+        }
+        else {console.log("NO file ..Null")}
+     }
         $scope.payPal = function (item) {
            document.querySelector('.overlay').style.display = "block";
             $http({

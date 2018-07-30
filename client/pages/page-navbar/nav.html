@@ -12,11 +12,15 @@
                     color: white !important;
                 }
                 .navbar-brand:hover {color: springgreen !important}
-                .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
-                margin: 0px !important;
-            }
+                .navbar-header {
+                    margin: 0 !important;
+                }
             @media screen and (min-width : 768px){
+                
                 .container-fluid> .navbar-header {width : 100%;display: flex;justify-content: space-between;}
+                .navbar-nav {
+                         float: left;
+                        }
             }
             </style>
 <nav style="border-radius: 0 !important;" class="navbar navbar-light bg-light navbar-inverse ">
@@ -29,6 +33,7 @@
                                 color: lightcyan;
                                 font-weight: 800;
                             }
+
                         </style>
                         <a class="navbar-brand" href="#/list_home">Gadget Shop</a>   
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarNavDropdown" aria-expanded="false">

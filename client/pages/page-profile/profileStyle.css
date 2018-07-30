@@ -53,6 +53,13 @@
     margin: auto;
     /* border-radius: 50% 50%; */
 }
+.image_cotainer .profile_pic:hover {
+    opacity: 0.6;
+}
+.image_cotainer .profile_cam_icon {
+    float: right;
+    clear: both;
+}
 .head_container .content_container {
     flex: 1.6;
     flex-shrink: 1;
@@ -95,8 +102,8 @@
     justify-content: space-evenly;
     /* background-color: wheat; */
     /* margin: 2px; */
-    height: 380px;
-    width: 350px;
+    height: 100%;
+    width: 100%;
     overflow: visible;
 }
 .panel-body .item_img_holder {
@@ -144,8 +151,8 @@
 }
 
 
-/* At Media Level maximum 425px Width*/
-@media screen and (max-width : 765px){
+/* At Media Level maximum 768px Width*/
+@media screen and (max-width : 768px){
     .content_container .content {
         display: flex;
         flex-direction: column;
@@ -173,8 +180,9 @@
         flex: .3;
         flex-shrink: 2;
         width: auto;
-        /* padding: 0px; */
+        display: flex;
         height: 230px;
+        max-width: 300px;
         align-self: center;
         /* right: auto; */
         /* border: 0.5px solid; */
@@ -196,7 +204,13 @@
     font-size: 22px;
 
     }
+    .cart_container .cart_title {
+        text-align: center;
+    }
     
+    .propile .col-md-4 {
+         width: 100% !important;
+        }
 
 }
 
@@ -243,8 +257,8 @@
     justify-content: space-evenly;
     /* background-color: wheat; */
     /* margin: 2px; */
-    height: 380px;
-    width: 350px;
+    height: 100%;
+    width: 100%;
 }
 
 .card {
@@ -290,6 +304,7 @@
     font-weight: 0;
     font-size: 20px;
 }
+
 .panel-title {
     margin-top: 0;
     margin-bottom: 0;
@@ -300,4 +315,18 @@
     font-size: 27px;
     color: #ffcd00;
     font-weight: 800;
+}
+/* @media screen and (min-width : 768px) and (max-width : 1100px){
+    .propile .col-md-4 {
+        width: 33.33333333% !important;
+    }
+} */
+@media  screen and (min-width : 769px){
+    .propile .col-md-4 {
+        width: 50% !important;
+    }
+    .head_container .image_cotainer {
+        min-width: 300px !important;
+        min-height: 260px !important;
+    }
 }

@@ -1,8 +1,10 @@
-
+.fa {
+    color: white;
+}
 .about_container {
     display: flex;
     flex-direction: column;
-    margin-top: -20px;
+ 
 }
 
 .bros_iamge_container {
@@ -18,7 +20,7 @@
 .body_container {
     flex: initial;
     width: 100%;
-    height: 300px;
+    height: auto;
     display: flex;
     flex-direction: row;
     /* align-items: safe; */
@@ -56,7 +58,7 @@
 flex: initial;
 }
 .disc_title {
-    font-size: 23px;
+    font-size: 21px !important;
     font-family: sans-serif;
     display: inline-block;
     max-width: 100%;

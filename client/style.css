@@ -63,6 +63,10 @@ text-align: center;
 }
 .social li {
     margin-top: auto !important;
+ 
+}
+.social li a {
+    color: white;
 }
 .technoImg {
     width: 25%;
@@ -172,7 +176,7 @@ outline: none;
 }
 .fbottom_left {
     display: flex;
-    color: #ff136a;
+    color: #4CAF50;
     flex-direction: row;
     justify-content: center;
     width: 100%;

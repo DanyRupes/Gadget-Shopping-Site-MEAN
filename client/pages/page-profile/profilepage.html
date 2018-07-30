@@ -33,7 +33,11 @@
                         <div class="head_container">
                                 <div class="image_cotainer">
                                         <!-- <h1>Hii Image</h1> -->
-                                        <img class="img-circle profile_pic" src="danypic.png">
+                                        <a  href="" ng-model="__file"  ngf-select="updatePic($file);" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB">
+                                                <!-- <input > -->
+                                                <img class="img-circle profile_pic" data-ng-src={{propic}}>
+                                                <i class="fa fa-camera profile_cam_icon" ng-model="profile_cam_icon"></i>
+                                        </a>
                                 </div>
                                 <div class="content_container">
                                     <div class="content">
@@ -51,8 +55,8 @@
                                 <div class="cart_title">
                                         <span class="title">Cart</span>
                                 </div>
-                                <div class=" row col-md-12">
-                                            <div class="cart_item col-md-4 col-sm-4" ng-repeat="c in Cart">
+                                <div class="row propile">
+                                            <div class="cart_item col-md-4 col-sm-6 col-xs-12" ng-repeat="c in Cart">
                                                             <div class="panel">
                                                               <i ng-click="rem_cart(c,$event);" class="fa fa-minus-circle" aria-hidden="true"></i>
                                                                     <div class="panel-title">

@@ -24,10 +24,11 @@ paypal.configure({
 
 app.use(express.static(path.join(__dirname, "../client/")))
 app.use(express.static(path.join(__dirname, '/../uploads/images/')))
+app.use(express.static(path.join(__dirname, '/../uploads/propics/')))
 app.use(express.static(path.join(__dirname, '/../Styles/Angular/')))
 app.use(express.static(path.join(__dirname, '/../Styles/Bootstrap/')))
 app.use(express.static(path.join(__dirname, '/../Styles/Jquery/')))
-app.use(express.static(path.join(__dirname, '/../Styles/Fonts/')))
+app.use(express.static(path.join(__dirname, '/../Styles/fonts/')))
 app.use(express.static(path.join(__dirname, '/../Styles/Images/')))
 app.use(express.static(path.join(__dirname, "/../client/ng-file-upload-bower-10.1.8/")))
 
@@ -39,7 +40,27 @@ var storage = multer.diskStorage({
         cb(null, file.originalname)
     }
 })
+var storePropic = multer.diskStorage({
+    destination : (req,file,cb) => {
+        cb(null, 'uploads/propics')
+    },
+    filename : (req, file, cb) => {
+        cb(null, file.originalname)
+    }
+})
 var upload = multer({storage : storage})
+var upProfilepic = multer({storage : storePropic})
+
+
+    app.post('/updatePropic', upProfilepic.single('image'), function (req, res) { 
+        monGo.userProfile.findOneAndUpdate({email : req.body.userEmail},{$set : {userpic : req.file.originalname}})
+        .then(real=>{
+            res.status(200).send(real.userpic)
+        })
+        .catch(err=>{console.log(err)
+        res.send(500,"Not Now")})
+     })
+
 
     app.post('/add_item',upload.single('image'),function(req,res){
         console.log("hrlloooo" +req.file.originalname)

@@ -18,6 +18,7 @@ mongoose.connection.on('error', function(err){
      email : String,
      password : String,
      cart : Array,
+     userpic : String
     //  _id : String,
  })
  var item_list = new Schema ({
